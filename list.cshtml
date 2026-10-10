@@ -1,0 +1,34 @@
+@model List<studentfeedback.Models.feedback>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Feedback List</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Enrollment No</th>
+        <th>Student Name</th>
+        <th>Subject</th>
+        <th>Rating</th>
+        <th>Comments</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EnrollNo</td>
+            <td>@item.StudentName</td>
+            <td>@item.Subject</td>
+            <td>@item.rating</td>
+            <td>@item.comments</td>
+        </tr>
+    }
+</table>
+
+<br />
+@Html.ActionLink("Give New Feedback", "Create", "feedback")
+<br />
+<br />
+@Html.ActionLink("Back to Home", "Index", "feedback")
